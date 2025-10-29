@@ -18,8 +18,8 @@ const allowedOrigins = [
  // 1. Current IP for testing
  'http://104.251.212.197',
  // 2. Final domain names (MUST include the protocol)
-"http://transaction.somsoftsystems.com", // <-- ADD HTTP
- "https://transaction.somsoftsystems.com", // <-- ADD HTTPS (CRITICAL)
+"http://bayaan.somsoftsystems.com", // <-- ADD HTTP
+ "https://bayaan.somsoftsystems.com", // <-- ADD HTTPS (CRITICAL)
 ];
 
 const corsOptions = {
