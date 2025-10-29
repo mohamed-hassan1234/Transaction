@@ -18,7 +18,7 @@ const allowedOrigins = [
     // 1. Current IP for testing
     'http://104.251.212.197', 
     // 2. Final domain names (include HTTP and HTTPS for when you install SSL)
-    
+    "transaction.somsoftsystems.com",
 ];
 
 const corsOptions = {
