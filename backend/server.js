@@ -13,14 +13,28 @@ import { errorHandler } from './middleware/errorHandler.js';
 
 dotenv.config();
 const app = express();
+// Add your allowed origins list here
+const allowedOrigins = [
+    // 1. Current IP for testing
+    'http://104.251.212.197', 
+    // 2. Final domain names (include HTTP and HTTPS for when you install SSL)
+    
+];
+
 const corsOptions = {
-  origin: (origin, callback) => {
-    callback(null, true); // allow all origins dynamically
-  },
-  credentials: true, // allow cookies
+    // This function checks if the request origin is in our allowed list
+    origin: (origin, callback) => {
+        // If the origin is in the allowed list, or if it's undefined (common for same-origin or server-to-server requests), allow it.
+        if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
+    credentials: true, // allow cookies/tokens
 };
 
-app.use(cors(corsOptions));
+app.use(cors(corsOptions)); // This line remains the same
 app.use(express.json());
 app.use(morgan('dev'));
 
