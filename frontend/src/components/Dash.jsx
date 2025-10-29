@@ -63,7 +63,7 @@ const Dash = () => {
       }
 
       // Fetch main dashboard stats
-      const statsResponse = await fetch("http://localhost:5001/api/dashboard", {
+      const statsResponse = await fetch("/api/dashboard", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -95,13 +95,13 @@ const Dash = () => {
     try {
       // Fetch all data in parallel for better performance
       const [clientsResponse, transactionsResponse, taxLogsResponse] = await Promise.all([
-        fetch("http://localhost:5001/api/clients", {
+        fetch("/api/clients", {
           headers: { Authorization: `Bearer ${token}` },
         }),
-        fetch("http://localhost:5001/api/transactions", {
+        fetch("/api/transactions", {
           headers: { Authorization: `Bearer ${token}` },
         }),
-        fetch("http://localhost:5001/api/taxlogs", {
+        fetch("/api/taxlogs", {
           headers: { Authorization: `Bearer ${token}` },
         })
       ]);

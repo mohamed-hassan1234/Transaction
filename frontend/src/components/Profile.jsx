@@ -54,7 +54,7 @@ const Profile = () => {
 
     try {
       const res = await axios.put(
-        "http://localhost:5001/api/auth/profile",
+        "/api/auth/profile",
         form,
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -77,7 +77,7 @@ const Profile = () => {
     if (!window.confirm("Are you absolutely sure you want to delete your account? This action cannot be undone!")) return;
     
     try {
-      await axios.delete("http://localhost:5001/api/auth/profile", {
+      await axios.delete("/api/auth/profile", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setMessage({ type: "success", text: "✅ Account deleted successfully" });

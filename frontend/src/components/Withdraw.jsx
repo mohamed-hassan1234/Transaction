@@ -54,7 +54,7 @@ const Withdraw = () => {
     const fetchClients = async () => {
       try {
         const token = localStorage.getItem("token");
-        const res = await fetch("http://localhost:5001/api/clients", {
+        const res = await fetch("/api/clients", {
           headers: { Authorization: `Bearer ${token}` },
         });
         const data = await res.json();
@@ -71,7 +71,7 @@ const Withdraw = () => {
     const fetchTaxRate = async () => {
       try {
         const token = localStorage.getItem("token");
-        const res = await fetch("http://localhost:5001/api/settings/taxRate", {
+        const res = await fetch("/api/settings/taxRate", {
           headers: { Authorization: `Bearer ${token}` },
         });
         const data = await res.json();
@@ -97,7 +97,7 @@ const Withdraw = () => {
     setIsRefreshing(true);
     try {
       const token = localStorage.getItem("token");
-      const res = await fetch("http://localhost:5001/api/withdraw", {
+      const res = await fetch("/api/withdraw", {
         headers: { Authorization: `Bearer ${token}` },
       });
       const data = await res.json();
@@ -140,7 +140,7 @@ const Withdraw = () => {
         date: withdrawDateTime
       };
 
-      const res = await fetch("http://localhost:5001/api/withdraw", {
+      const res = await fetch("/api/withdraw", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

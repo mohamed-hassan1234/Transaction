@@ -62,7 +62,7 @@ const Login = () => {
     setLoading(true);
 
     try {
-      const res = await axios.post("http://localhost:5001/api/auth/login", form, {
+      const res = await axios.post("/api/auth/login", form, {
         withCredentials: true,
       });
 

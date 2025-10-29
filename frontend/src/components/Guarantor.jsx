@@ -38,7 +38,7 @@ const Guarantor = () => {
     try {
       setIsRefreshing(true);
       const token = localStorage.getItem("token");
-      const res = await axios.get("http://localhost:5001/api/guarantors", {
+      const res = await axios.get("/api/guarantors", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setGuarantors(res.data);
@@ -68,7 +68,7 @@ const Guarantor = () => {
     try {
       const token = localStorage.getItem("token");
       const res = await axios.post(
-        "http://localhost:5001/api/guarantors",
+        "/api/guarantors",
         form,
         {
           headers: { Authorization: `Bearer ${token}` },

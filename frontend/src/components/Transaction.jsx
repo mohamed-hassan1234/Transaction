@@ -72,7 +72,7 @@ const Transaction = () => {
   // Fetch Clients
   const fetchClients = async () => {
     try {
-      const res = await axios.get("http://localhost:5001/api/clients", {
+      const res = await axios.get("/api/clients", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setClients(res.data);
@@ -86,7 +86,7 @@ const Transaction = () => {
     setLoading(true);
     setIsRefreshing(true);
     try {
-      const res = await axios.get("http://localhost:5001/api/transactions", {
+      const res = await axios.get("/api/transactions", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setTransactions(res.data);
@@ -102,7 +102,7 @@ const Transaction = () => {
   // Fetch Tax Rate
   const fetchTaxRate = async () => {
     try {
-      const res = await axios.get("http://localhost:5001/api/settings/taxRate", {
+      const res = await axios.get("/api/settings/taxRate", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setTaxRate(Number(res.data.value));
@@ -175,7 +175,7 @@ const Transaction = () => {
         totalAmount: totalAmount
       };
 
-      await axios.post("http://localhost:5001/api/transactions", transactionData, {
+      await axios.post("/api/transactions", transactionData, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setMessage("✅ Transaction created successfully!");

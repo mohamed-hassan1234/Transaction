@@ -49,7 +49,7 @@ const Client = () => {
     setLoading(true);
     setIsRefreshing(true);
     try {
-      const res = await axios.get("http://localhost:5001/api/clients", {
+      const res = await axios.get("/api/clients", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setClients(res.data);
@@ -64,7 +64,7 @@ const Client = () => {
   // Fetch guarantors
   const fetchGuarantors = async () => {
     try {
-      const res = await axios.get("http://localhost:5001/api/guarantors", {
+      const res = await axios.get("/api/guarantors", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setGuarantors(res.data);
@@ -89,7 +89,7 @@ const Client = () => {
     
     try {
       await axios.post(
-        "http://localhost:5001/api/clients",
+        "/api/clients",
         form,
         { headers: { Authorization: `Bearer ${token}` } }
       );

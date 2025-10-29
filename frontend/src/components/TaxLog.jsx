@@ -57,7 +57,7 @@ const TaxLog = () => {
     setLoading(true);
     setIsRefreshing(true);
     try {
-      const res = await axios.get("http://localhost:5001/api/taxlogs", {
+      const res = await axios.get("/api/taxlogs", {
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });
       setLogs(res.data);
@@ -72,7 +72,7 @@ const TaxLog = () => {
 
   const fetchClients = async () => {
     try {
-      const res = await axios.get("http://localhost:5001/api/clients", {
+      const res = await axios.get("/api/clients", {
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });
       setClients(res.data);

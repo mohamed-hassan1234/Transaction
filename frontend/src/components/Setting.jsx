@@ -141,7 +141,7 @@ const Setting = () => {
 
       for (const key of allKeys) {
         try {
-          const res = await axios.get(`http://localhost:5001/api/settings/${key}`, {
+          const res = await axios.get(`/api/settings/${key}`, {
             headers: { Authorization: `Bearer ${token}` },
           });
           // Convert string values to appropriate types
@@ -207,7 +207,7 @@ const Setting = () => {
       const valueToSave = settings[key]?.toString() || "";
       
       await axios.put(
-        `http://localhost:5001/api/settings/${key}`,
+        `/api/settings/${key}`,
         { value: valueToSave },
         { headers: { Authorization: `Bearer ${token}` } }
       );
