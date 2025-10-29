@@ -15,10 +15,11 @@ dotenv.config();
 const app = express();
 // Add your allowed origins list here
 const allowedOrigins = [
-    // 1. Current IP for testing
-    'http://104.251.212.197', 
-    // 2. Final domain names (include HTTP and HTTPS for when you install SSL)
-    "transaction.somsoftsystems.com",
+ // 1. Current IP for testing
+ 'http://104.251.212.197',
+ // 2. Final domain names (MUST include the protocol)
+"http://transaction.somsoftsystems.com", // <-- ADD HTTP
+ "https://transaction.somsoftsystems.com", // <-- ADD HTTPS (CRITICAL)
 ];
 
 const corsOptions = {
